@@ -1,5 +1,5 @@
 
-
+#-----------------------Types------------------------------------------------------
 #--> type() function
 #--> The type() function is used to determine the data type of a variable or value.
 
@@ -20,7 +20,7 @@ print("My name is " + name)
 print ("My age is " + str(age))  # Convert age to string before concatenation
 
 
-
+#---------------------------------------Math------------------------------------------------------
 #--> len() function
 #--> The len() function is used to determine the length of a string, list, tuple, or other iterable.
 
@@ -42,7 +42,7 @@ Ronit in ASE.
 print(a.count("Ronit")) # Output: 2
 
 
-
+#------------------------------------Transformations--------------------------------------
 #--> replace() method
 #--> The replace() method is used to replace occurrences of a substring with another substring in a string.
 
@@ -120,3 +120,93 @@ print("Slicing (0:6):", text[0:6]) # Output: Python
 print("Slicing (2:5:2):", text[2:5:2]) # Output: th
 print("Slicing(:4):", text[:4]) # Output: Pyth
 print("Slicing(2:):", text[2:]) # Output: thon
+
+
+
+#-------------------------------------Cleaning-------------------------------------
+#--> lstrip() method
+#--> The lstrip() method is used to remove leading whitespace characters from a string.
+text = "  Ronit  "
+print(text)  # Output: "  Ronit  "
+print(text.lstrip())  # Output: "Ronit  "
+
+#--> rstrip() method
+#--> The rstrip() method is used to remove trailing whitespace characters from a string.
+print(text.rstrip())  # Output: "  Ronit"
+
+#--> strip() method
+#--> The strip() method is used to remove both leading and trailing whitespace characters from a string.
+print(text.strip())  # Output: "Ronit"
+
+text2 = "  Ronit Patel  "
+print(text2.strip())  # Output: "Ronit Patel" (only removes leading and trailing spaces, not spaces in between words)
+
+
+
+#--> lower() method
+#--> The lower() method is used to convert all characters in a string to lowercase.
+text = "RONIT".lower()
+print(text)  # Output: "ronit"
+
+
+#--> upper() method
+#--> The upper() method is used to convert all characters in a string to uppercase.
+text = "ronit".upper()
+print(text)  # Output: "RONIT"
+
+
+#---Challenge---
+#--> Given the input string "968-Ronit, ( Data Engineer ) ;; 25y  ", write a Python code to clean and extract the name, role, and age from the string. 
+# The output should be in the format: "name: ronit | role: data engineer | age: 25".
+input = "968-Ronit, ( Data Engineer ) ;; 25y  "
+new_input = input.strip().replace("968-", "").replace("(", "").replace(")", "").replace("  ;;", ",").replace("y", "").lower().split(",")
+print(new_input)  # Output: ['ronit', ' data engineer ', ' 25']
+name = new_input[0].strip()
+role = new_input[1].strip()
+age = new_input[2].strip()
+print(f"name: {name} | role: {role} | age: {age}")  # Output: name: ronit | role: data engineer | age: 25
+
+
+
+
+#-------------------------------Searching-------------------------------------
+#--> startswith() method
+#--> The startswith() method is used to check if a string starts with a specified prefix
+text = "Hello, World!"
+print(text.startswith("Hello"))  # Output: True
+
+#--> endswith() method
+#--> The endswith() method is used to check if a string ends with a specified suffix
+print(text.endswith("World!"))  # Output: True
+
+#--> find() method
+#--> The find() method is used to find the index of the first occurrence of a substring in a string. It returns -1 if the substring is not found.
+text = "Hello, World!"
+print(text.find("World"))  # Output: 7
+
+#--> in operator
+#--> The in operator is used to check if a substring exists within a string. It returns True if the substring is found, and False otherwise.
+text = "Hello, World!"
+print("World" in text)  # Output: True
+
+
+
+
+
+#--------------------------------Validation-------------------------------------
+#--> isalpha() method
+#--> The isalpha() method is used to check if all characters in a string are alphabetic (letters). It returns True if all characters are alphabetic, and False otherwise.
+text = "Hello"
+print(text.isalpha())  # Output: True
+
+text = "Hello123"
+print(text.isalpha())  # Output: False
+
+
+#--> isnumeric() method
+#--> The isnumeric() method is used to check if all characters in a string are numeric (digits). It returns True if all characters are numeric, and False otherwise.
+text = "12345"
+print(text.isnumeric())  # Output: True
+
+text = "12345abc"
+print(text.isnumeric())  # Output: False
